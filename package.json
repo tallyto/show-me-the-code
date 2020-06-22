@@ -1,0 +1,17 @@
+{
+  "name": "show-me-the-code",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "author": "Tállyto Rodrigues",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
