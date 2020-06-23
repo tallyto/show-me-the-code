@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="card border-dark mt-4">
+    <div class="card-body">
+      <h5 class="card-title">Calcular tarifa</h5>
+      <form method="POST" action="/calcular-tarifa">
+
+        <div class="row">
+
+          <div class="col">
+            <div class="form-group">
+              <label for="origem">DDD de Origem</label>
+              <select class="form-control" name="origem">
+                <option>011</option>
+                <option>016</option>
+                <option>017</option>
+                <option>018</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label for="destino">DDD de Destino</label>
+              <select class="form-control" name="destino">
+                <option>011</option>
+                <option>016</option>
+                <option>017</option>
+                <option>018</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+
+          <div class="col">
+            <div class="form-group">
+              <label for="tempo">Minutos Falados</label>
+              <input type="number" class="form-control" name="tempo" required placeholder="Duração da ligação">
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label for="plano">Planos Telzir</label>
+              <select class="form-control" id="plano" name="plano">
+                <option value="30">FaleMais 30</option>
+                <option value="60">FaleMais 60 </option>
+                <option value="120">FaleMais 120</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+        <small>*A tarifa não é cobrada em ligações para o mesmo DDD.</small><br>
+        <button type="submit" class="btn btn-dark mt-2">Calcular</button>
+
+      </form>
+    </div>
+  </div>
+  {{#if calculo}}
+  <div class="card border-dark mt-4">
+    <div class="card-body">
+      <h5 class="card-title">Tarifa</h5>
+      <p>Com o plano FaleMais {{plano}} você paga R$ {{valorComPlano}}</p>
+      <p>Sem o plano FaleMais {{plano}} você paga R$ {{valorSemPlano}}</p>
+    </div>
+  </div>
+  {{/if}}
+
+
+
+</div>

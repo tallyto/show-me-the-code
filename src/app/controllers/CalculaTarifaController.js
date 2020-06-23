@@ -1,15 +1,18 @@
 module.exports = {
   calculaTarifaPage: (req, res) => {
     const { origem, destino, tempo, plano } = req.body;
-    let tarifa = calculaTarifa(origem, destino);
-    let execende = minutosExcedentes(Number(plano), Number(tempo));
-    const valorSemPlano = tempo * tarifa;
+    const tarifa = calculaTarifa(origem, destino);
+    const execende = minutosExcedentes(Number(plano), Number(tempo));
+    const valorSemPlano = Number(tempo) * tarifa;
     const valorComJuros = ((execende * tarifa) / 100) * 10;
     const valorComPlano = valorComJuros + execende * tarifa;
 
-    return res.json({
-      valorComPlano,
-      valorSemPlano,
+    return res.render("home", {
+      valorComPlano: valorComPlano.toFixed(2),
+      valorSemPlano: valorSemPlano.toFixed(2),
+      plano,
+      title: "Telzir",
+      calculo: true,
     });
   },
 };
